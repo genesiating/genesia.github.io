@@ -1,2 +1,2 @@
-# genesia.github.io
+# genesiating.github.io
 
