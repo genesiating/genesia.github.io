@@ -1,0 +1,2452 @@
+<!DOCTYPE html>
+<html lang="en">
+  <script>document.documentElement.classList.add("js-ready");</script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Genesia Ting — Senior Product Designer</title>
+  <style>
+    @font-face {
+      font-family: 'Messina Sans';
+      src: url('fonts/MessinaSans-Light.otf') format('opentype');
+      font-weight: 300;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Messina Sans';
+      src: url('fonts/MessinaSans-Regular.otf') format('opentype');
+      font-weight: 400;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Messina Sans';
+      src: url('fonts/MessinaSans-RegularItalic.otf') format('opentype');
+      font-weight: 400;
+      font-style: italic;
+    }
+    @font-face {
+      font-family: 'Messina Sans';
+      src: url('fonts/MessinaSans-Bold.otf') format('opentype');
+      font-weight: 700;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Freight Text Pro';
+      src: url('fonts/freight-text-pro_400_italic.ttf') format('truetype');
+      font-weight: 400;
+      font-style: italic;
+    }
+    @font-face {
+      font-family: 'Tiempos Text';
+      src: url('fonts/TiemposText-400-Regular.otf') format('opentype');
+      font-weight: 400;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Tiempos Text';
+      src: url('fonts/TiemposText-500-Medium.otf') format('opentype');
+      font-weight: 500;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Tiempos Text';
+      src: url('fonts/TiemposText-600-Semibold.otf') format('opentype');
+      font-weight: 600;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Tiempos Text';
+      src: url('fonts/TiemposText-700-Bold.otf') format('opentype');
+      font-weight: 700;
+      font-style: normal;
+    }
+  </style>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      /* ── Colors ── */
+      --blue:       #256BFB;
+      --blue-hover: #1A5EF0;
+      --ink:        #1A1A1A;
+      --muted:      #6B6B6B;
+      --bg:         #FFFFFF;
+      --bg-soft:    #F8F8F8;
+      --border:     #E8E8E8;
+
+      /* ── Fonts ── */
+      --font-sans:  'Messina Sans', sans-serif;
+      --font-serif: 'Freight Text Pro', Georgia, serif;
+
+      /* ── Type scale ── */
+      --text-hero:  44px;
+      --text-h2:    24px;
+      --text-h3:    22px;
+      --text-h4:    18px;
+      --text-body:  16px;
+      --text-small: 14px;
+      --text-label: 12px;
+
+      /* ── Layout ── */
+      --max-w:  990px;
+      --nav-h:  56px;
+    }
+
+    html { scroll-behavior: smooth; scrollbar-gutter: stable; background: #ffffff; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      font-size: var(--text-body);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      font-variant-ligatures: none;
+    }
+
+    /* ── Global type ── */
+    a { color: var(--blue); text-decoration: none; transition: color 0.15s; }
+    a:hover { color: var(--blue-hover); }
+
+    /* Dotted underline — appears on hover only */
+    .link-dotted {
+      text-decoration: none;
+      background-image: none;
+      padding-bottom: 2px;
+      transition: color 0.15s;
+    }
+
+    .link-dotted:hover {
+      color: var(--blue-hover);
+      background-image: radial-gradient(circle, var(--blue-hover) 1px, transparent 1px);
+      background-size: 5px 1px;
+      background-repeat: repeat-x;
+      background-position: 0 100%;
+    }
+
+    /* Dotted underline — always visible, turns blue on hover */
+    .link-dotted-always {
+      text-decoration: none;
+      color: #555555;
+      background-image: radial-gradient(circle, #555555 1px, transparent 1px);
+      background-size: 5px 1px;
+      background-repeat: repeat-x;
+      background-position: 0 100%;
+      padding-bottom: 2px;
+      transition: color 0.15s, background-image 0.15s;
+    }
+
+    .link-dotted-always:hover {
+      color: var(--blue-hover);
+      background-image: radial-gradient(circle, var(--blue-hover) 1px, transparent 1px);
+    }
+
+    h1 {
+      font-family: var(--font-sans);
+      font-size: var(--text-hero);
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+    }
+
+    h2 {
+      font-family: var(--font-serif);
+      font-size: var(--text-h2);
+      font-style: italic;
+      font-weight: 400;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+    }
+
+    h3 {
+      font-family: var(--font-sans);
+      font-size: var(--text-h3);
+      font-weight: 500;
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+    }
+
+    p {
+      font-family: var(--font-sans);
+      font-size: var(--text-body);
+      font-weight: 400;
+      line-height: 1.6;
+      color: var(--ink);
+    }
+
+    .text-small {
+      font-size: var(--text-small);
+      font-weight: 400;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    .text-label {
+      font-size: var(--text-label);
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    ::selection {
+      background: rgba(37, 107, 251, 0.15);
+      color: var(--ink);
+    }
+
+    .js-ready .scroll-fade {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .js-ready .scroll-fade.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .scroll-fade.no-transition {
+      transition: none;
+    }
+
+    .scroll-fade.no-transition {
+      transition: none;
+    }
+
+    /* ── IMAGE PROTECTION ── */
+    img {
+      -webkit-user-drag: none;
+      user-drag: none;
+      -webkit-user-select: none;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    /* Overlay to block interaction on image containers */
+    .case-card-image::after,
+    .collection-thumb::after,
+    .collection-list-image-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+    }
+
+    .cursor {
+      display: inline-block;
+      font-weight: 300;
+      color: var(--ink);
+      animation: blink 0.7s step-end infinite;
+      margin-left: 1px;
+    }
+
+    .cursor.hidden { display: none; }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    .fade-in-bio {
+      transition: opacity 0.8s ease;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: var(--nav-h);
+      background: #ffffff;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      padding: 0 48px;
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-identity {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .nav-identity:hover { color: inherit; }
+
+    .nav-name {
+      font-size: var(--text-body);
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+
+    .nav-divider {
+      color: var(--border);
+      font-size: var(--text-body);
+      user-select: none;
+    }
+
+    .nav-title {
+      font-size: var(--text-body);
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: var(--text-body);
+      font-weight: 400;
+      color: var(--ink);
+    }
+
+    .nav-links a:hover { color: var(--blue-hover); }
+
+    /* ── HERO ── */
+    .hero {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 96px 48px 72px;
+    }
+
+    .hero-eyebrow {
+      display: block;
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: var(--text-h2);
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+
+    .hero-heading {
+      font-family: 'Tiempos Text', Georgia, serif;
+      font-size: var(--text-hero);
+      font-weight: 400;
+      line-height: 1.21;
+      letter-spacing: -0.05em;
+      color: var(--ink);
+      max-width: 960px;
+      margin-bottom: 32px;
+    }
+
+    .hero-heading .accent { color: var(--blue); }
+
+    /* ── TWO-COL BIO ── */
+    .hero-bio {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 64px;
+      padding-top: 24px;
+      align-items: start;
+    }
+
+    .hero-bio-left p {
+      font-size: var(--text-body);
+      color: var(--ink);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .hero-bio-left p:last-child { margin-bottom: 0; }
+
+    .hero-bio-right {
+      align-self: start;
+    }
+
+    .hero-bio-right blockquote {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: var(--text-h2);
+      font-weight: 400;
+      line-height: 1.25;
+      color: var(--ink);
+      margin-top: -6px;
+    }
+
+    /* ── COMPANIES ── */
+    .companies-section {
+      padding: 0;
+    }
+
+    .companies-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 48px;
+    }
+
+    .companies-content {
+      border-top: 1px solid #e8e8e8;
+      border-bottom: 1px solid #e8e8e8;
+      padding: 36px 0;
+    }
+
+    .companies-label {
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #ababab;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .companies-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .company-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 16px;
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      font-size: var(--text-small);
+      font-weight: 400;
+      color: var(--ink);
+    }
+
+    .company-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--blue);
+      opacity: 0.7;
+      flex-shrink: 0;
+    }
+
+    /* ── HED-FOLIO SECTION ── */
+    .hed-folio-section {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 64px 48px 40px;
+    }
+
+    .hed-folio-eyebrow {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: var(--text-small);
+      font-weight: 400;
+      color: #9A9A9A;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .hed-folio-h1 {
+      font-family: 'Tiempos Text', Georgia, serif;
+      font-style: normal;
+      font-size: var(--text-hero);
+      font-weight: 400;
+      color: var(--ink);
+      letter-spacing: -0.05em;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+
+    .hed-folio-body {
+      font-family: var(--font-sans);
+      font-size: var(--text-body);
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .hed-folio-body p + p { margin-top: 16px; }
+
+    @media (max-width: 768px) {
+      .hed-folio-section { padding: 40px 20px 28px; }
+      .hed-folio-h1 { font-size: 32px; }
+    }
+
+    /* ── QUICK LINKS SECTION ── */
+    .quick-links-section {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 48px 48px 0;
+    }
+
+    .quick-links-inner {
+      background: var(--bg-soft);
+      border-radius: 10px;
+      padding: 28px 36px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .quick-links-left {}
+
+    .quick-links-heading {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: var(--text-h2);
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    .quick-links-sub {
+      font-family: var(--font-sans);
+      font-size: var(--text-small);
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #9A9A9A;
+    }
+
+    .quick-links-buttons {
+      display: flex;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .quick-link-btn {
+      font-family: var(--font-sans);
+      font-size: 15px;
+      font-weight: 400;
+      letter-spacing: 0;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 14px 0;
+      width: 160px;
+      text-align: center;
+      border-radius: 6px;
+      border: 1px solid #c7c7c7;
+      background: transparent;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s, color 0.15s;
+      white-space: nowrap;
+      position: relative;
+    }
+
+    .quick-link-btn:hover {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+    }
+
+    .quick-link-btn .btn-arrow {
+      position: absolute;
+      font-size: 0.55em;
+      top: 50%;
+      transform: translateY(-110%);
+      margin-left: 3px;
+      opacity: 0;
+      color: #fff;
+      transition: opacity 0.15s;
+      pointer-events: none;
+    }
+
+    .quick-link-btn:hover .btn-arrow {
+      opacity: 1;
+    }
+
+    @media (max-width: 768px) {
+      .quick-links-section { padding: 32px 20px 0; }
+      .quick-links-inner { flex-direction: column; align-items: flex-start; gap: 20px; }
+      .quick-links-buttons { width: 100%; }
+      .quick-link-btn { flex: 1; text-align: center; }
+    }
+
+    /* ── WORK SECTION ── */
+    .work-section {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 80px 48px 100px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 48px;
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: var(--text-h2);
+      font-weight: 400;
+      color: var(--ink);
+    }
+
+    .section-link {
+      font-size: var(--text-small);
+      color: var(--blue);
+    }
+
+    .section-link:hover { color: var(--blue-hover); }
+
+    /* ── CASE STUDY GRID ── */
+    .case-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .case-card {
+      background: var(--bg);
+      text-decoration: none;
+      color: inherit;
+      display: grid;
+      grid-template-columns: 2fr 3fr;
+      border: 1px solid rgba(199, 199, 199, 0.5);
+      border-radius: 10px;
+      min-width: 0;
+      overflow: hidden;
+      transform: translateY(0);
+      transition: transform 0.3s cubic-bezier(0.42, 0, 0.58, 1), box-shadow 0.3s cubic-bezier(0.42, 0, 0.58, 1);
+      min-height: 280px;
+    }
+
+    .case-card:hover {
+      color: inherit;
+      transform: translateY(-4px) !important;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.056);
+    }
+
+    .case-card-image img {
+      opacity: 0.9;
+      transition: opacity 0.3s ease;
+    }
+
+    .case-card:hover .case-card-image img {
+      opacity: 1;
+    }
+
+    .case-card-image {
+      background: var(--bg-soft);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      order: 2;
+    }
+
+    .case-card:nth-child(1) .case-card-image { background: #EEF1FD; }
+    .case-card:nth-child(2) .case-card-image { background: #F0F5EE; }
+    .case-card:nth-child(3) .case-card-image { background: #F5F0EE; }
+    .case-card:nth-child(4) .case-card-image { background: #F0EEF5; }
+
+    .case-card-image-placeholder {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      background: rgba(0,0,0,0.06);
+    }
+
+    .case-card-body {
+      padding: 36px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      order: 1;
+    }
+
+    .case-card-label {
+      display: block;
+      font-size: var(--text-small);
+      font-weight: 400;
+      color: #9A9A9A;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .case-card-title {
+      font-size: var(--text-h3);
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1.3;
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+      transition: color 0.3s cubic-bezier(0.42, 0, 0.58, 1);
+    }
+
+    .case-card:hover .case-card-title { color: var(--blue); }
+
+    .case-card-desc {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .case-card-footer {
+      margin-top: 28px;
+      display: flex;
+      align-items: center;
+    }
+
+    .case-card-link {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: var(--text-small);
+      color: var(--blue);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .case-card:hover .case-card-link { color: var(--blue-hover); }
+    .case-card-link svg { transition: transform 0.2s; }
+    .case-card:hover .case-card-link svg { transform: translateX(3px); }
+
+    @media (max-width: 768px) {
+      .case-card {
+        grid-template-columns: 1fr;
+        min-height: unset;
+      }
+      .case-card-image {
+        order: 1;
+        min-height: 200px;
+      }
+      .case-card-body {
+        order: 2;
+        padding: 24px 20px;
+      }
+    }
+
+    .name-hover {
+      cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'><text y='26' font-size='26'>🤠</text></svg>") 16 16, auto;
+    }
+
+    #hover-photo {
+      position: fixed;
+      width: 125px;
+      height: 125px;
+      border-radius: 8px;
+      object-fit: cover;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      z-index: 1000;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    }
+
+    #hover-photo.visible { opacity: 1; }
+
+    #speaking-hover-photo {
+      position: fixed;
+      border-radius: 8px;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      z-index: 1000;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+      top: 0;
+      left: 0;
+    }
+
+    #speaking-hover-photo.visible { opacity: 1; }
+    .fade-up {
+      animation: fadeUp 0.5s ease forwards;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── SPEAKING SECTION ── */
+    .speaking-section {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 48px 100px;
+    }
+
+    .speaking-inner {
+      border-top: 1px solid #e8e8e8;
+      padding-top: 40px;
+    }
+
+    .rows-a .row {
+      display: grid;
+      grid-template-columns: 36px 1fr auto;
+      gap: 0 16px;
+      align-items: start;
+      padding: 16px 12px;
+      border-bottom: 1px solid var(--border);
+      transition: background 0.15s;
+      cursor: default;
+      text-decoration: none !important;
+      color: inherit !important;
+    }
+
+    .rows-a a.row {
+      cursor: pointer;
+      display: grid;
+    }
+    .rows-a .row:hover { background: rgba(37, 107, 251, 0.07); }
+    .rows-a .row:first-child { border-top: none; }
+    .rows-a .row:last-child { border-bottom: none; }
+
+    .row-emoji {
+      font-size: 20px;
+      line-height: 1.4;
+      text-align: center;
+    }
+
+    .row-body { min-width: 0; }
+
+    .row-org {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 3px;
+    }
+
+    .row-right {
+      text-align: right;
+      align-self: start;
+      margin-top: -2px;
+    }
+
+    .row-meta {
+      font-size: 12px;
+      color: #9A9A9A;
+      white-space: nowrap;
+    }
+
+    .row-title {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1.4;
+      max-width: 520px;
+    }
+
+    /* ── COLLECTION TOGGLE ── */
+    .collection-toggle {
+      display: flex;
+      gap: 0;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .toggle-btn {
+      background: none;
+      border: none;
+      padding: 6px 14px;
+      font-family: var(--font-body);
+      font-size: var(--text-label);
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .toggle-btn:first-child {
+      border-right: 1px solid var(--border);
+    }
+
+    .toggle-btn.active {
+      background: var(--blue);
+      color: #fff;
+    }
+
+    .toggle-btn:not(.active):hover {
+      background: rgba(37, 107, 251, 0.07);
+      color: var(--ink);
+    }
+
+    .collection-thumb--nda { cursor: not-allowed; }
+    .collection-list-card--nda { cursor: not-allowed; }
+
+    .collection-list-nda-title {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      cursor: not-allowed;
+    }
+
+    .collection-nda-tag {
+      display: inline-block;
+      background: #f0f0f0;
+      color: #6B6B6B;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 4px;
+      white-space: nowrap;
+      pointer-events: none;
+      flex-shrink: 0;
+      vertical-align: middle;
+    }
+
+    /* ── COLLECTION LIST VIEW ── */
+    .collection-list-view {
+      display: none;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .collection-list-view.visible { display: flex; }
+
+    .collection-list-card {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 24px;
+      align-items: start;
+      padding: 24px 0;
+      border-bottom: 1px solid #e8e8e8;
+      transition: transform 0.2s cubic-bezier(0.42, 0, 0.58, 1);
+    }
+
+    .collection-list-card:first-child { padding-top: 0; }
+    .collection-list-card:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .collection-list-card:hover { transform: translateX(4px); }
+
+    .collection-list-image {
+      width: 180px;
+      height: 104px;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 6px;
+      display: block;
+      opacity: 0.9;
+      transition: opacity 0.2s ease;
+    }
+
+    .collection-list-card:hover .collection-list-image { opacity: 1; }
+
+    .collection-list-placeholder {
+      width: 180px;
+      height: 104px;
+      border-radius: 6px;
+      background: var(--bg-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+    }
+
+    .collection-list-content {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .collection-list-title {
+      font-size: var(--text-h3);
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+
+    .collection-list-desc {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    /* ── COLLECTION SECTION ── */
+    .collection-section {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 48px 100px;
+    }
+
+    .collection-inner {
+      border-top: 1px solid #e8e8e8;
+      padding-top: 40px;
+    }
+
+    .collection-inner .section-header {
+      position: sticky;
+      top: var(--nav-h);
+      background: #ffffff;
+      z-index: 50;
+      padding: 12px 0;
+      margin-bottom: 36px;
+    }
+
+    .collection-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .collection-row-wrap {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .collection-image-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .collection-detail {
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      border-top: 0px solid #e8e8e8;
+      border-bottom: 1px solid #e8e8e8;
+      margin-top: 0;
+      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                  opacity 0.3s ease,
+                  padding 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                  margin-top 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                  border-top-width 0.35s ease;
+    }
+
+    .collection-detail.open {
+      max-height: 400px;
+      opacity: 1;
+      padding: 24px 0;
+      margin-top: 12px;
+      border-top: 1px solid #e8e8e8;
+    }
+
+    .collection-detail-inner {
+      transition: opacity 0.25s ease;
+    }
+
+    .collection-mobile-pairs { display: none; }
+
+    @media (max-width: 768px) {
+      .collection-section { padding: 0 20px 80px; }
+      .collection-image-row { display: none; }
+      .collection-detail-desktop { display: none !important; }
+      .collection-mobile-pairs { display: flex; flex-direction: column; gap: 12px; }
+      .collection-mobile-pair { display: flex; flex-direction: column; }
+      .collection-mobile-image-row {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+      .collection-thumb-wrap { display: contents; }
+    }
+
+    @media (min-width: 769px) {
+      .collection-detail-mobile { display: none !important; }
+    }
+
+    .collection-thumb {
+      aspect-ratio: 5/3;
+      border-radius: 6px;
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+      background: var(--bg-soft);
+    }
+
+    .collection-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      opacity: 0.85;
+      transition: opacity 0.25s ease, filter 0.25s ease;
+    }
+
+    .collection-thumb:not(.active):hover img { opacity: 1; }
+
+    .collection-thumb.dimmed img {
+      opacity: 0.35;
+      filter: saturate(0.3);
+    }
+
+    .collection-thumb.dimmed:not(.active):hover img {
+      opacity: 0.7;
+      filter: saturate(0.5);
+    }
+
+    .collection-thumb.active img {
+      opacity: 1 !important;
+      filter: none !important;
+    }
+
+    .collection-thumb .collection-thumb-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      opacity: 0.85;
+      transition: opacity 0.25s ease, filter 0.25s ease;
+    }
+
+    .collection-thumb:hover .collection-thumb-placeholder { opacity: 1; }
+
+    .collection-thumb.dimmed .collection-thumb-placeholder {
+      opacity: 0.35;
+      filter: saturate(0.2);
+    }
+
+    .collection-detail-title {
+      font-size: var(--text-h3);
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+    }
+
+    .collection-detail-link {
+      color: var(--ink);
+      text-decoration: none;
+      background-image: none;
+      padding-bottom: 2px;
+      transition: color 0.15s, background-image 0.15s;
+    }
+
+    .collection-detail-link:hover {
+      color: var(--blue-hover);
+      background-image: radial-gradient(circle, var(--blue-hover) 1px, transparent 1px);
+      background-size: 5px 1px;
+      background-repeat: repeat-x;
+      background-position: 0 100%;
+    }
+
+    .collection-detail-arrow {
+      display: inline-block;
+      margin-left: 6px;
+      font-size: 0.55em;
+      color: #9A9A9A;
+      vertical-align: super;
+      transition: color 0.15s;
+    }
+
+    .collection-detail-link:hover .collection-detail-arrow { color: var(--blue-hover); }
+
+    .collection-detail-desc {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.4;
+      max-width: 640px;
+    }
+
+    .collection-thumb-wrap {
+      display: contents;
+    }
+
+    @media (min-width: 769px) {
+      .collection-detail-mobile { display: none !important; }
+    }
+
+    @media (max-width: 768px) {
+      .collection-thumb-wrap { display: contents; }
+    }
+    /* ── GIVING SEASON ── */
+    .giving-section {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 48px 100px;
+    }
+
+    .giving-inner {
+      border-top: 1px solid #e8e8e8;
+      padding-top: 40px;
+    }
+
+    .giving-intro {
+      font-size: var(--text-body);
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 48px;
+    }
+
+    .giving-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .giving-card {
+      display: block;
+      text-decoration: none;
+      color: var(--ink);
+      background: #ffffff;
+      padding: 28px 22px;
+      border-radius: 2px;
+      position: relative;
+      box-shadow: 2px 3px 12px rgba(0,0,0,0.10), 0 1px 3px rgba(0,0,0,0.06);
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+      will-change: transform;
+      margin-top: 14px;
+    }
+
+    .giving-card::before {
+      content: '';
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 64px;
+      height: 22px;
+      background: rgba(200, 190, 160, 0.45);
+      clip-path: polygon(
+        8% 0%, 92% 0%,
+        100% 20%, 96% 40%, 100% 60%, 96% 80%, 100% 100%,
+        92% 100%, 8% 100%,
+        0% 80%, 4% 60%, 0% 40%, 4% 20%
+      );
+    }
+
+    .giving-card:nth-child(1) { transform: rotate(-1.5deg); }
+    .giving-card:nth-child(2) { transform: rotate(1deg); }
+    .giving-card:nth-child(3) { transform: rotate(-0.5deg); }
+    .giving-card:nth-child(4) { transform: rotate(1.2deg); }
+    .giving-card:nth-child(5) { transform: rotate(-1deg); }
+    .giving-card:nth-child(6) { transform: rotate(0.8deg); }
+
+    .giving-card:hover {
+      box-shadow: 4px 10px 28px rgba(0,0,0,0.15);
+      transform: rotate(0deg) translateY(-4px) !important;
+    }
+
+    .giving-card h3 {
+      font-size: var(--text-h4);
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      margin-bottom: 10px;
+      transition: color 0.15s;
+    }
+
+    .giving-card:hover h3 { color: var(--blue); }
+
+    .giving-card p {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    .giving-card .collection-detail-arrow {
+      color: rgba(0,0,0,0.3);
+      transition: color 0.15s;
+    }
+
+    .giving-card:hover .collection-detail-arrow { color: var(--blue); }
+
+    @media (max-width: 768px) {
+      .giving-section { padding: 0 20px 80px; }
+      .giving-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-title { display: none; }
+      .hero { padding: 56px 20px 48px; }
+      .hero-heading { margin-bottom: 32px; }
+      .hero-bio { grid-template-columns: 1fr; gap: 32px; }
+      .companies-section { padding: 40px 20px; }
+      .speaking-section { padding: 0 20px 80px; }
+      .rows-a .row { grid-template-columns: 36px 1fr; }
+      .row-right { display: none; }
+      .speaking-grid { grid-template-columns: 1fr; }
+      .work-section { padding: 56px 20px 80px; }
+      .case-grid { grid-template-columns: 1fr; }
+      .case-card:hover {
+        transform: translateY(0) !important;
+        box-shadow: none;
+      }
+      .case-card-image img { opacity: 1; }
+    }
+  </style>
+
+  <style>
+    #pw-gate {
+      position: fixed;
+      inset: 0;
+      background: #fff;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 20px;
+      font-family: 'Messina Sans', sans-serif;
+      padding-bottom: 36px;
+    }
+
+    #pw-gate h2 {
+      font-family: 'Freight Text Pro', Georgia, serif;
+      font-style: italic;
+      font-size: 28px;
+      font-weight: 400;
+      color: #1A1A1A;
+    }
+
+    #pw-gate p {
+      font-size: 14px;
+      color: #6B6B6B;
+      margin-top: -8px;
+    }
+
+    #pw-form {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    #pw-input {
+      font-family: 'Messina Sans', sans-serif;
+      font-size: 15px;
+      padding: 10px 16px;
+      border: 1.5px solid #E8E8E8;
+      border-radius: 6px;
+      outline: none;
+      width: 220px;
+      transition: border-color 0.15s;
+      color: #1A1A1A;
+    }
+
+    #pw-input:focus { border-color: #256BFB; }
+    #pw-input.error { border-color: #e05757; animation: shake 0.3s ease; }
+
+    @keyframes shake {
+      0%,100% { transform: translateX(0); }
+      25% { transform: translateX(-6px); }
+      75% { transform: translateX(6px); }
+    }
+
+    #pw-submit {
+      font-family: 'Tiempos Text', Georgia, serif;
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: 0;
+      text-transform: none;
+      background: #256BFB;
+      color: #fff;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.15s;
+      align-self: stretch;
+    }
+
+    #pw-submit:hover { background: #1A5EF0; }
+
+    #pw-error {
+      font-size: 13px;
+      color: #e05757;
+      height: 18px;
+      text-align: center;
+    }
+
+    #pw-back {
+      font-size: 13px;
+      color: #555555;
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    #pw-back:hover { color: var(--blue-hover); }
+
+    #pw-back-arrow {
+      text-decoration: none;
+    }
+
+    #pw-back-text {
+      background-image: radial-gradient(circle, #555555 1px, transparent 1px);
+      background-size: 5px 1px;
+      background-repeat: repeat-x;
+      background-position: 0 100%;
+      padding-bottom: 2px;
+      transition: background-image 0.15s;
+    }
+
+    #pw-back:hover #pw-back-text {
+      background-image: radial-gradient(circle, var(--blue-hover) 1px, transparent 1px);
+    }
+
+    .pw-circle-wrap {
+      width: 187px;
+      height: 187px;
+      margin-bottom: 32px;
+    }
+
+    body.pw-locked { overflow: hidden; }
+  </style>
+  <style>
+    @view-transition { navigation: auto; }
+    ::view-transition-old(root), ::view-transition-new(root) {
+      animation-duration: 0.2s;
+    }
+    nav { view-transition-name: site-nav; }
+    ::view-transition-old(site-nav), ::view-transition-new(site-nav) {
+      animation: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- PASSWORD GATE -->
+  <div id="pw-gate">
+    <div class="pw-circle-wrap">
+      <canvas id="pw-circle" width="187" height="187"></canvas>
+    </div>
+    <p>Genesia's work is password protected.</p>
+    <div id="pw-form">
+      <input id="pw-input" type="password" placeholder="Enter password" autocomplete="off" />
+      <button id="pw-submit">Enter</button>
+    </div>
+    <div id="pw-error"></div>
+    <a href="index.html" id="pw-back"><span id="pw-back-arrow">← </span><span id="pw-back-text">Back to homepage</span></a>
+  </div>
+
+  <script>
+  // ── MORPHING CIRCLE ──
+  (function(){
+    const TEXT = 'GENESIA TING \u00b7 GENESIA TING \u00b7 GENESIA TING \u00b7 ';
+    const CX=93, CY=93, R=68, FS=11;
+    const cv = document.getElementById('pw-circle');
+    const ctx = cv.getContext('2d');
+    ctx.font = `700 ${FS}px 'Messina Sans',sans-serif`;
+
+    const baseChars = TEXT.split('');
+    let cum = 0;
+    const total = baseChars.reduce((s,c)=>s+ctx.measureText(c).width+.5,0);
+    const charData = baseChars.map(c=>{const frac=cum/total;cum+=ctx.measureText(c).width+.5;return{char:c,frac};});
+    const N = charData.length;
+
+    function lerp(a,b,t){return a+(b-a)*t;}
+    function smoothStep(t){return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;}
+    function circlePts(r,n){return Array.from({length:n},(_,i)=>{const a=(i/n)*Math.PI*2-Math.PI/2;return{x:Math.cos(a)*r,y:Math.sin(a)*r};});}
+    function polyPts(sides,r,n){
+      const pts=[];
+      for(let i=0;i<n;i++){
+        const t=(i/n)*sides, si=Math.floor(t)%sides, ti=t-Math.floor(t);
+        const a1=(si/sides)*Math.PI*2-Math.PI/2, a2=((si+1)/sides)*Math.PI*2-Math.PI/2;
+        pts.push({x:lerp(Math.cos(a1),Math.cos(a2),ti)*r,y:lerp(Math.sin(a1),Math.sin(a2),ti)*r});
+      }
+      return pts;
+    }
+
+    const SHAPES=[
+      {name:'Triangle',sides:3,rpm:7000, dur:2200},
+      {name:'Square',  sides:4,rpm:8500, dur:2200},
+      {name:'Pentagon',sides:5,rpm:9500, dur:2200},
+      {name:'Hexagon', sides:6,rpm:10500,dur:2200},
+    ];
+
+    const pos=circlePts(R,N).map(p=>({...p}));
+    const src=pos.map(p=>({...p}));
+    const dst=pos.map(p=>({...p}));
+    const charOrder=[...Array(N).keys()];
+
+    let hov=false, si=0, phase='hold', phaseStart=0;
+    let rot=0, sRot=0, last=performance.now();
+    const MDUR=600;
+
+    function getShapePts(i){return polyPts(SHAPES[i].sides,R,N);}
+    function startMorph(targetPts){
+      src.forEach((s,i)=>{s.x=pos[i].x;s.y=pos[i].y;});
+      dst.forEach((d,i)=>{d.x=targetPts[i].x;d.y=targetPts[i].y;});
+      phase='morph'; phaseStart=performance.now();
+    }
+
+    cv.addEventListener('mouseenter',()=>{hov=true;si=0;sRot=rot;startMorph(getShapePts(si));});
+    cv.addEventListener('mouseleave',()=>{hov=false;startMorph(circlePts(R,N));});
+
+    function draw(now){
+      const dt=now-last; last=now;
+      ctx.clearRect(0,0,187,187);
+
+      rot+=(dt/12000)*Math.PI*2;
+      if(phase==='hold'&&hov) sRot+=(dt/SHAPES[si].rpm)*Math.PI*2;
+      else if(phase==='hold'&&!hov) sRot+=(dt/12000)*Math.PI*2;
+      else { const rpm=hov?SHAPES[si].rpm:12000; sRot+=(dt/rpm)*Math.PI*2; }
+
+      if(phase==='morph'){
+        const t=Math.min(1,(now-phaseStart)/MDUR);
+        const st=smoothStep(t);
+        pos.forEach((_,i)=>{pos[i].x=lerp(src[i].x,dst[i].x,st);pos[i].y=lerp(src[i].y,dst[i].y,st);});
+        if(t>=1){dst.forEach((_,i)=>{pos[i].x=dst[i].x;pos[i].y=dst[i].y;});phase='hold';phaseStart=now;}
+      } else if(phase==='hold'&&hov){
+        if(now-phaseStart>SHAPES[si].dur){si=(si+1)%SHAPES.length;startMorph(getShapePts(si));}
+      }
+
+      const useRot=sRot;
+      charOrder.forEach((ci,i)=>{
+        const char=charData[ci].char;
+        const px=CX+pos[i].x*Math.cos(useRot)-pos[i].y*Math.sin(useRot);
+        const py=CY+pos[i].x*Math.sin(useRot)+pos[i].y*Math.cos(useRot);
+        const a=Math.atan2(py-CY,px-CX);
+        ctx.save();
+        ctx.translate(px,py);
+        ctx.rotate(a+Math.PI/2);
+        ctx.font=`700 ${FS}px 'Messina Sans',sans-serif`;
+        ctx.fillStyle='#256BFB';
+        ctx.textAlign='center'; ctx.textBaseline='middle';
+        ctx.fillText(char,0,0);
+        ctx.restore();
+      });
+      requestAnimationFrame(draw);
+    }
+    requestAnimationFrame(draw);
+  })();
+  </script>
+
+  <script>
+    history.scrollRestoration = 'manual';
+    window.scrollTo(0, 0);
+    const CORRECT = "welcome!";
+    const gate = document.getElementById('pw-gate');
+    const input = document.getElementById('pw-input');
+    const submit = document.getElementById('pw-submit');
+    const error = document.getElementById('pw-error');
+
+    function dismissGate() {
+      gate.style.display = 'none';
+      document.body.classList.remove('pw-locked');
+      // Don't lock scroll — no animation to contain on auto-unlock
+      function tryStart() {
+        if (window.__startIntro) {
+          window.__startIntro();
+        } else {
+          requestAnimationFrame(tryStart);
+        }
+      }
+      requestAnimationFrame(tryStart);
+    }
+
+    // Skip gate if already unlocked in this browser
+    if (localStorage.getItem('pw-unlocked') === 'true') {
+      dismissGate();
+    } else {
+      // Show gate
+      document.body.classList.add('pw-locked');
+      // Force animations to always play on this page
+      sessionStorage.removeItem('introPlayed');
+      sessionStorage.removeItem('scrollSeen');
+    }
+
+    function tryUnlock() {
+      if (input.value === CORRECT) {
+        localStorage.setItem('pw-unlocked', 'true');
+        error.textContent = "That's the correct password! Open sesame.";
+        error.style.color = '#2a9d5c';
+        input.style.borderColor = '#2a9d5c';
+        setTimeout(() => {
+          gate.style.transition = 'opacity 0.4s ease';
+          gate.style.opacity = '0';
+          setTimeout(() => {
+            gate.style.display = 'none';
+            document.body.classList.remove('pw-locked');
+            setTimeout(() => {
+              document.body.style.overflow = 'hidden';
+              window.__startIntro && window.__startIntro();
+            }, 100);
+          }, 400);
+        }, 400);
+      } else {
+        error.style.color = '#e05757';
+        error.textContent = "Hmm, that's not quite right. Try a different password.";
+        input.classList.add('error');
+        input.value = '';
+        setTimeout(() => input.classList.remove('error'), 400);
+      }
+    }
+
+    submit.addEventListener('click', tryUnlock);
+    input.addEventListener('keydown', e => { if (e.key === 'Enter') tryUnlock(); });
+  </script>
+
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="nav-identity">
+        <span class="nav-name">Genesia Ting</span>
+        <span class="nav-title">Senior Product Designer</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="previous-work.html" class="link-dotted">Work</a></li>
+        <li><a href="about.html" class="link-dotted">About</a></li>
+        <li><a href="mailto:genesia.ting@gmail.com" class="link-dotted">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HED-FOLIO -->
+  <section class="hed-folio-section scroll-fade">
+    <span class="hed-folio-eyebrow" id="hed-folio-eyebrow">Hello</span>
+    <h1 class="hed-folio-h1" id="hed-folio-h1">Welcome to my work!</h1>
+    <p class="hed-folio-body" id="hed-folio-body">Below is a compilation of some of my work from blah blah blah. Thanks for reading!</p>
+  </section>
+
+  <!-- QUICK LINKS -->
+  <section class="quick-links-section scroll-fade">
+    <div class="quick-links-inner">
+      <div class="quick-links-left">
+        <h2 class="quick-links-heading" id="folio-heading">Quick Links »</h2>
+        <p class="quick-links-sub" id="folio-sub">For your consideration</p>
+      </div>
+      <div class="quick-links-buttons" id="folio-buttons">
+        <a href="resume.pdf" target="_blank" class="quick-link-btn">Resume<span class="btn-arrow">↗</span></a>
+        <a href="index.html" class="quick-link-btn">Case Studies<span class="btn-arrow">↗</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section class="work-section scroll-fade" id="work">
+    <div class="section-header">
+      <h2 class="section-title">Selected Work »</h2>
+    </div>
+
+    <div class="case-grid" id="case-grid">
+      <!-- Cards loaded from Google Sheet -->
+    </div>
+  </section>
+
+  <!-- OTHER WORK -->
+  <section class="collection-section scroll-fade" id="collection">
+    <div class="collection-inner">
+      <div class="section-header">
+        <h2 class="section-title">Collection of Other Work »</h2>
+        <div class="collection-toggle">
+          <button class="toggle-btn" id="toggle-grid" onclick="setCollectionView('grid')">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:block;">
+              <rect x="1" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+              <rect x="8" y="1" width="5" height="5" rx="1" fill="currentColor"/>
+              <rect x="1" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+              <rect x="8" y="8" width="5" height="5" rx="1" fill="currentColor"/>
+            </svg>
+            Grid
+          </button>
+          <button class="toggle-btn active" id="toggle-list" onclick="setCollectionView('list')">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:block;">
+              <rect x="1" y="2" width="3.5" height="3.5" rx="0.75" fill="currentColor"/>
+              <rect x="6.5" y="2" width="6.5" height="1.2" rx="0.6" fill="currentColor"/>
+              <rect x="6.5" y="4.3" width="4.5" height="1.2" rx="0.6" fill="currentColor"/>
+              <rect x="1" y="8" width="3.5" height="3.5" rx="0.75" fill="currentColor"/>
+              <rect x="6.5" y="8" width="6.5" height="1.2" rx="0.6" fill="currentColor"/>
+              <rect x="6.5" y="10.3" width="4.5" height="1.2" rx="0.6" fill="currentColor"/>
+            </svg>
+            List
+          </button>
+        </div>
+      </div>
+      <div class="collection-list" id="collection-list">
+        <!-- Grid view loaded from Google Sheet -->
+      </div>
+      <div class="collection-list-view" id="collection-list-view">
+        <!-- List view loaded from Google Sheet -->
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Image protection
+    document.addEventListener('contextmenu', e => {
+      if (e.target.tagName === 'IMG') e.preventDefault();
+    });
+
+    document.addEventListener('dragstart', e => {
+      if (e.target.tagName === 'IMG') e.preventDefault();
+    });
+
+    // Disable Ctrl/Cmd+S and Ctrl/Cmd+U (save page / view source)
+    document.addEventListener('keydown', e => {
+      if ((e.ctrlKey || e.metaKey) && ['s', 'u', 'p'].includes(e.key.toLowerCase())) {
+        e.preventDefault();
+      }
+    });
+
+    // Scroll fade-in setup
+    function initScrollObserver() {
+      const scrollEls = document.querySelectorAll('.scroll-fade');
+
+      // Force a reflow so opacity:0 is registered before we start adding visible
+      scrollEls.forEach(el => el.getBoundingClientRect());
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const idx = [...scrollEls].indexOf(entry.target);
+            setTimeout(() => {
+              entry.target.classList.add('visible');
+            }, idx * 100);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.05 });
+
+      scrollEls.forEach(el => observer.observe(el));
+    }
+
+    // Hover photo
+    const OFFSET = 12;
+    const PHOTO_SIZE = 125;
+
+    function attachHoverPhoto() {
+      const nameEl = document.querySelector('.name-hover');
+      const photo = document.getElementById('hover-photo');
+      if (!nameEl || !photo) {
+        setTimeout(attachHoverPhoto, 100);
+        return;
+      }
+      nameEl.addEventListener('mouseenter', () => photo.classList.add('visible'));
+      nameEl.addEventListener('mouseleave', () => photo.classList.remove('visible'));
+      nameEl.addEventListener('mousemove', (e) => {
+        let x = e.clientX + OFFSET;
+        let y = e.clientY - PHOTO_SIZE - OFFSET;
+        if (y < 8) y = e.clientY + OFFSET;
+        if (x + PHOTO_SIZE > window.innerWidth - 8) x = e.clientX - PHOTO_SIZE - OFFSET;
+        photo.style.left = x + 'px';
+        photo.style.top = y + 'px';
+      });
+    }
+
+    // Typewriter effect for hero heading
+    const fullText = [
+      { text: "I'm " },
+      { text: "Genesia Ting", hover: true },
+      { text: ", a " },
+      { text: "senior product designer", accent: true },
+      { text: " in scenic San Francisco.", pause: 600 },
+      { text: " I've been designing public interest technology for over 8 years." }
+    ];
+
+    const typewriterEl = document.getElementById('typewriter');
+    const cursorEl = document.querySelector('.cursor');
+    const bioEl = document.querySelector('.fade-in-bio');
+
+    // Flatten to plain string for typing, tracking segment boundaries
+    const segments = [];
+    let pos = 0;
+    for (const seg of fullText) {
+      segments.push({ ...seg, start: pos, end: pos + seg.text.length });
+      pos += seg.text.length;
+    }
+    const plainText = fullText.map(s => s.text).join('');
+    let charIndex = 0;
+    const speed = 18;
+
+    function buildHTML() {
+      let result = '';
+      for (const seg of segments) {
+        const visible = plainText.substring(seg.start, Math.min(charIndex, seg.end));
+        if (!visible) break;
+        if (seg.hover) result += `<span class="name-hover">${visible}</span>`;
+        else if (seg.accent) result += `<span class="accent">${visible}</span>`;
+        else result += visible;
+        if (charIndex <= seg.end) break;
+      }
+      return result;
+    }
+
+    let typing = false;
+
+    function type() {
+      if (!typing) return;
+      if (charIndex <= plainText.length) {
+        if (typewriterEl) typewriterEl.innerHTML = buildHTML();
+
+        const justFinished = segments.find(s => s.pause && charIndex === s.end);
+        charIndex++;
+
+        if (justFinished) {
+          setTimeout(type, justFinished.pause);
+        } else {
+          setTimeout(type, speed);
+        }
+      } else {
+        setTimeout(() => {
+          if (cursorEl) cursorEl.remove();
+          setTimeout(() => {
+            if (bioEl) bioEl.style.opacity = '1';
+            document.body.style.overflow = '';
+            attachHoverPhoto();
+            setTimeout(() => initScrollObserver(), 600);
+          }, 500);
+        }, 400);
+      }
+    }
+
+    // Lock scroll during intro animation — but not if auto-unlocked via localStorage
+    const isPreview = new URLSearchParams(window.location.search).has('preview');
+
+    if (!isPreview && sessionStorage.getItem('introPlayed')) {
+      // Already played — no lock needed
+    } else if (localStorage.getItem('pw-unlocked') === 'true') {
+      // Auto-unlock — no scroll lock to avoid layout shift
+    } else {
+      document.body.style.overflow = 'hidden';
+    }
+
+    // Skip animation if already played this session (unless in preview mode)
+    window.__startIntro = async function() {
+      document.body.style.overflow = '';
+      attachHoverPhoto();
+      await Promise.all([loadTopSections(), loadCaseStudies(), loadOtherWork()]);
+      initScrollObserver();
+    };
+
+    if (!isPreview && sessionStorage.getItem('introPlayed')) {
+      attachHoverPhoto();
+      window.__startIntro();
+    } else if (localStorage.getItem('pw-unlocked') === 'true') {
+      // Already handled by dismissGate() rAF loop — do nothing here
+    } else if (!document.getElementById('pw-gate') || document.getElementById('pw-gate').style.display === 'none') {
+      if (!isPreview) sessionStorage.setItem('introPlayed', 'true');
+      window.__startIntro();
+    }
+    // On previous-work.html, gate will call window.__startIntro() after unlock
+  </script>
+
+  <img id="hover-photo" src="images/genesia.jpeg" alt="Genesia Ting" />
+  <img id="speaking-hover-photo" src="" alt="" />
+
+  <script>
+    const SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRip0RqXJOUupva6nkbPOPDFekJsHiaUN9EBCid6HlZlwE1dhQjIw7IpkxlkjJ16zvoGGYJJAWc8ijK/pub?output=csv';
+    const SHEET_URL_FRESH = SHEET_URL + '&t=' + Date.now();
+
+    const FALLBACK_DATA = [
+      {
+        'Category': 'selectedwork',
+        'Name': 'RECIDIVIZ',
+        'Heading': 'Designing a transparency-first, data-driven app for incarcerated residents',
+        'Description': 'A correctional facility\'s resident-facing app centralizes release timelines, good time earnings, and program enrollment into a single platform. I led UX design with embedded mental health frameworks and motivational design patterns to support agency and forward momentum for users navigating the justice system.',
+        'Tags (separate by comma)': '',
+        'Image Name': '',
+        'External Links': 'motivational|http://google.com/'
+      },
+      {
+        'Category': 'selectedwork',
+        'Name': 'TECHNOLOGY GIANT',
+        'Heading': 'Revitalizing a tech giant\'s SaaS platform for hardware support',
+        'Description': 'A tech giant\'s SaaS platform is a one-stop shop for support and coverage for both hardware and software offerings. I championed design efforts for a complete redesign of the internal product over the course of 2 contracts: 9 months and 6 months, respectively.',
+        'Tags (separate by comma)': '',
+        'Image Name': 'burger.png',
+        'External Links': ''
+      },
+      {
+        'Category': 'selectedwork',
+        'Name': '911 TELECOMMUNICATIONS COMPANY',
+        'Heading': 'Streamlining emergency operations through deep user research and co-design',
+        'Description': 'A 911 operator enterprise application managing high-stakes, real-time workflows required extensive field research — including operator shadowing sessions and co-design sprints — to surface nuanced pain points. I translated complex operational needs into a scalable, intuitive interface built for speed and accuracy under pressure.',
+        'Tags (separate by comma)': '',
+        'Image Name': '',
+        'External Links': ''
+      },
+      {
+        'Category': 'speaking',
+        'Name': '🎓',
+        'Heading': 'California College of the Arts',
+        'Description': 'Systems Design (Graduate IXD Program)',
+        'Tags (separate by comma)': 'March 2026',
+        'Image Name': '',
+        'External Links': 'California College of the Arts|https://www.cca.edu/'
+      },
+      {
+        'Category': 'otherwork',
+        'Name': 'Los Angeles Times',
+        'Heading': 'Points of Interest',
+        'Description': 'A progressive new editorial format to empower journalists to publish and create articles with interactive map-based components directly in the CMS easily. Using structured data, they are able to create reusable, evergreen components for map curation.',
+        'Tags (separate by comma)': '',
+        'Image Name': 'burger.png',
+        'External Links': 'Points of Interest @ Los Angeles Times|https://www.latimes.com/california/list/lausd-strike-student-free-meal-locations'
+      }
+    ];
+
+    const CARD_COLORS = ['#EEF1FD', '#F0F5EE', '#F5F0EE', '#F0EEF5'];
+    const EMOJIS = ['🌿', '🎨', '🔭', '🧩', '🌊', '🏔️', '🦋', '🪐', '🌸', '🎯', '🧪', '🌻', '🦚', '🎭', '🪴', '🌈', '🦊', '🌙', '⚡', '🎪', '🦁', '🌺', '🎸', '🏄', '🦜', '🌴', '🎠', '🦩', '🌋', '🎡', '🦋', '🍄', '🎆', '🦄', '🌾', '🎻', '🏜️', '🦅', '🌏', '🎪', '🦝', '🌵', '🎭', '🦋', '🏞️', '🎨', '🦋', '🌊', '🎯', '🦚', '🌸', '🎸', '🦜', '🌙', '🎠', '🦩', '🌋', '🎡', '🍄', '🎆', '🦄', '🌾', '🎻', '🏜️'];
+
+    function parseCSV(text) {
+      const lines = text.trim().split('\n');
+      const headers = lines[0].split(',').map(h => h.trim().replace(/^"|"$/g, ''));
+      const rows = [];
+      let i = 1;
+      let lastCategory = '';
+      while (i < lines.length) {
+        let line = lines[i];
+        // Handle fields that span multiple lines (quoted with newlines inside)
+        while ((line.match(/"/g) || []).length % 2 !== 0 && i + 1 < lines.length) {
+          i++;
+          line += '\n' + lines[i];
+        }
+        const cols = [];
+        let current = '';
+        let inQuotes = false;
+        for (let j = 0; j < line.length; j++) {
+          if (line[j] === '"') { inQuotes = !inQuotes; }
+          else if (line[j] === ',' && !inQuotes) { cols.push(current.trim()); current = ''; }
+          else { current += line[j]; }
+        }
+        cols.push(current.trim());
+        const row = headers.reduce((obj, h, idx) => {
+          obj[h] = (cols[idx] || '').replace(/^"|"$/g, '');
+          return obj;
+        }, {});
+        // Carry forward Category if blank
+        if (row['Category'] && row['Category'].trim()) {
+          lastCategory = row['Category'].trim();
+        } else if (lastCategory) {
+          row['Category'] = lastCategory;
+        }
+        if (Object.values(row).some(v => v)) rows.push(row);
+        i++;
+      }
+      return rows;
+    }
+
+    function slugify(str) {
+      return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+    }
+
+    function applyLinks(text, externalLinks) {
+      if (!externalLinks || !externalLinks.trim()) return text;
+      const pairs = externalLinks.split(',').map(s => s.trim()).filter(s => s.includes('|'));
+      pairs.forEach(pair => {
+        const pipeIndex = pair.indexOf('|');
+        const linkText = pair.substring(0, pipeIndex).trim();
+        const url = pair.substring(pipeIndex + 1).trim();
+        if (linkText && url) {
+          const escaped = linkText.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+          const regex = new RegExp(`\\b(${escaped})\\b`, 'gi');
+          text = text.replace(regex, `<a href="${url}" target="_blank" class="link-dotted-always" style="color:#555;font-size:inherit;line-height:inherit;">$1</a>`);
+        }
+      });
+      return text;
+    }
+
+    function buildCard(row, index) {
+      const tags = row['Tags (separate by comma)']
+        ? row['Tags (separate by comma)'].split(',').map(t => t.trim()).filter(Boolean)
+        : [];
+
+      const tagsHTML = tags.length
+        ? `<div class="case-card-tags">${tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>`
+        : '';
+
+      const color = CARD_COLORS[index % CARD_COLORS.length];
+      const slug = slugify(row['Name'] || `case-study-${index + 1}`);
+      const imageName = row['Image Name'] ? row['Image Name'].trim() : '';
+      const emoji = EMOJIS[Math.floor(Math.random() * EMOJIS.length)];
+      const description = applyLinks(row['Description'] || '', row['External Links'] || '');
+
+      const imageContent = imageName
+        ? `<img src="images/${imageName}" alt="${row['Heading'] || ''}" style="width: 100%; height: 100%; object-fit: cover; object-position: center; position: absolute; top: 0; left: 0;" />`
+        : `<span style="font-size: 48px; line-height: 1;">${emoji}</span>`;
+
+      return `
+        <div class="case-card" data-href="casestudy.html?id=${slug}" onclick="if(!event.target.closest('a'))location.href=this.dataset.href" style="cursor:pointer;">
+          <div class="case-card-body">
+            ${row['Name'] ? `<span class="case-card-label">${row['Name'].toUpperCase()}</span>` : ''}
+            <h3 class="case-card-title">${row['Heading'] || ''}</h3>
+            <div class="case-card-desc">${description}</div>
+            <div class="case-card-footer">
+              <a href="casestudy.html?id=${slug}" class="case-card-link">
+                Read case study
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="case-card-image" style="${imageName ? '' : `background: ${color};`}">
+            ${imageContent}
+          </div>
+        </div>`;
+    }
+
+    async function loadCaseStudies() {
+      const grid = document.getElementById('case-grid');
+      try {
+        const res = await fetch(SHEET_URL_FRESH, { cache: 'no-store' });
+        if (!res.ok) throw new Error('fetch failed');
+        const text = await res.text();
+        const allRows = parseCSV(text).filter(r => r['Category'] && r['Heading']);
+        const selectedWork = allRows.filter(r => r['Category'].trim().toLowerCase() === 'selectedwork');
+        if (selectedWork.length === 0) throw new Error('no rows');
+        grid.innerHTML = selectedWork.map((row, i) => buildCard(row, i)).join('');
+      } catch (err) {
+        const selectedWork = FALLBACK_DATA.filter(r => r['Category'] === 'selectedwork');
+        grid.innerHTML = selectedWork.map((row, i) => buildCard(row, i)).join('');
+      }
+      grid.querySelectorAll('.case-card').forEach(card => {
+        card.style.animationDelay = card.dataset.delay + 's';
+      });
+    }
+
+    // Fetch sheet once and populate hed-folio + folio-links together
+    async function loadTopSections() {
+      try {
+        const res = await fetch(SHEET_URL_FRESH, { cache: 'no-store' });
+        if (!res.ok) throw new Error('fetch failed');
+        const text = await res.text();
+        const allRows = parseCSV(text);
+
+        // hed-folio
+        const hedRow = allRows.find(r => r['Category'] && r['Category'].trim().toLowerCase() === 'hed-folio');
+        if (hedRow) {
+          const eyebrow = document.getElementById('hed-folio-eyebrow');
+          const h1 = document.getElementById('hed-folio-h1');
+          const body = document.getElementById('hed-folio-body');
+          if (eyebrow && hedRow['Name']) eyebrow.textContent = hedRow['Name'];
+          if (h1 && hedRow['Heading']) h1.textContent = hedRow['Heading'];
+          if (body && hedRow['Description']) {
+            const paragraphs = hedRow['Description'].split(/\n+/).map(p => p.trim()).filter(p => p.length > 0);
+            body.innerHTML = paragraphs.map(p => `<p>${p}</p>`).join('');
+          }
+        }
+
+        // folio links
+        const folio = allRows.filter(r => r['Category'] && r['Category'].trim().toLowerCase() === 'folio');
+        if (folio.length > 0) {
+          const meta = folio[0];
+          const headingEl = document.getElementById('folio-heading');
+          const subEl = document.getElementById('folio-sub');
+          if (headingEl && meta['Name']) headingEl.textContent = meta['Name'];
+          if (subEl && meta['Heading']) subEl.textContent = meta['Heading'];
+          const buttons = folio.slice(1).filter(row => (row['Description'] || '').trim());
+          if (buttons.length > 0) {
+            const container = document.getElementById('folio-buttons');
+            container.innerHTML = buttons.map(row => {
+              const label = (row['Description'] || '').trim();
+              const url = (row['External Links'] || '').trim();
+              return `<a href="${url}" target="_blank" class="quick-link-btn">${label}<span class="btn-arrow">↗</span></a>`;
+            }).join('');
+          }
+        }
+      } catch(e) {
+        // Silent fail — hardcoded defaults stay
+      }
+    }
+
+    async function loadFolioLinks() {}  // kept for compatibility
+    async function loadHedFolio() {}    // kept for compatibility
+
+    async function loadSpeaking() {
+      const grid = document.getElementById('speaking-grid');
+
+      const SPEAKING_FALLBACK = [
+        { emoji: '🐾', org: 'Coding it Forward', title: 'Panelist, Public Interest Tech Impact + Innovation', meta: 'Remote / Apr 2026', url: 'https://blog.codingitforward.com/introducing-coding-it-forwards-discovery-program-f98c38419c31', image: '' },
+        { emoji: '🎓', org: 'California College of the Arts', title: 'Systems Design (Graduate IXD Program)', meta: 'San Francisco, CA / Mar 2026', url: 'https://www.cca.edu/', image: 'cca-talk.png' },
+        { emoji: '🏛️', org: 'Design for the Public Good', title: 'Show & Tell / Lightning Talk – "The Art of Noticing"', meta: 'Portland, OR / Oct 2024', url: 'https://designforthepublic.com/', image: '' },
+        { emoji: '🔥', org: 'CROP Organization', title: 'Guest Speaker, Fireside Chat – "Design @ Recidiviz"', meta: 'Oakland, CA / Sept 2024', url: 'https://www.croporganization.org/', image: '' },
+        { emoji: '💻', org: 'BYOC Camps and Clubs', title: 'Facilitator, Organizer, and Workshop Coordinator', meta: 'Oakland, CA / Aug 2024', url: 'https://www.campbyoc.com/', image: '' },
+        { emoji: '📚', org: 'Carleton University', title: 'Guest Lecturer @ Media Production and Design – Extended Reality Journalism', meta: 'Ottawa, ON / Oct 2023', url: 'https://carleton.ca/', image: '' },
+        { emoji: '✏️', org: 'The University of Texas at Austin', title: 'Guest Lecturer – "Product Strategies for Journalism" (Knight Foundation, Google News Initiative)', meta: 'Remote / Aug to Sept 2021', url: 'https://knightcenter.utexas.edu/product-strategies-for-journalism-free-online-course-teaches-how-to-align-editorial-audience-business-and-technology/', image: '' },
+        { emoji: '🍎', org: 'University of Southern California', title: '2x Guest Lecturer @ Journalism and the Audience – "How to build effective news products"', meta: 'Remote / Sept 2020, Aug 2021', url: 'https://annenberg.usc.edu/', image: '' },
+        { emoji: '⚒️', org: 'SacHacks', title: 'Guest Speaker, Fireside Chat, Judge, Facilitator of Design Thinking Workshop', meta: 'Sacramento, CA / Nov 2018, Feb 2021', url: 'https://sachacks.io/', image: '' },
+        { emoji: '🎙️', org: 'Students Who Design', title: 'Guest Speaker – "Students Who Design: Genesia Ting"', meta: 'Remote / Sept 2018', url: 'https://podcasts.apple.com/us/podcast/students-who-design-genesia-ting/id1335522694?i=1000419807742', image: '' },
+      ];
+
+      function buildRow(item) {
+        const tag = item.url
+          ? `<a class="row" href="${item.url}" target="_blank"${item.image ? ` data-image="${item.image}"` : ''}>`
+          : `<div class="row"${item.image ? ` data-image="${item.image}"` : ''}>`;
+        const closeTag = item.url ? `</a>` : `</div>`;
+        return `
+          ${tag}
+            <div class="row-emoji">${item.emoji}</div>
+            <div class="row-body">
+              <div class="row-org">${item.org}</div>
+              <div class="row-title">${item.title}</div>
+            </div>
+            <div class="row-right"><span class="row-meta">${item.meta}</span></div>
+          ${closeTag}`;
+      }
+
+      try {
+        const res = await fetch(SHEET_URL_FRESH, { cache: 'no-store' });
+        if (!res.ok) throw new Error('fetch failed');
+        const text = await res.text();
+        const allRows = parseCSV(text).filter(r => r['Category'] && r['Heading']);
+        const speaking = allRows.filter(r => r['Category'].trim().toLowerCase() === 'speaking');
+        if (speaking.length === 0) throw new Error('no rows');
+        const items = speaking.map(row => {
+          const rawLinks = (row['External Links'] || '').trim();
+          const url = rawLinks.includes('|') ? rawLinks.split('|').pop().trim() : rawLinks;
+          const imageRaw = row['Image Name'] || row['Image name'] || '';
+          return {
+            emoji: row['Name'] || '',
+            org: row['Heading'] || '',
+            title: row['Description'] || '',
+            meta: row['Tags (separate by comma)'] || '',
+            url,
+            image: imageRaw.trim()
+          };
+        });
+        grid.innerHTML = items.map(buildRow).join('');
+        attachSpeakingHover();
+      } catch (err) {
+        grid.innerHTML = SPEAKING_FALLBACK.map(buildRow).join('');
+        attachSpeakingHover();
+      }
+    }
+
+    function attachSpeakingHover() {
+      if (!window.matchMedia('(hover: hover)').matches) return;
+
+      const speakingPhoto = document.getElementById('speaking-hover-photo');
+      const OFFSET = 16;
+      const MAX = 250;
+      const dims = {};
+
+      document.querySelectorAll('#speaking-grid [data-image]').forEach(row => {
+        const imgFile = row.dataset.image;
+        if (!imgFile) return;
+
+        const src = `images/speaking/${imgFile}`;
+
+        if (!dims[imgFile]) {
+          dims[imgFile] = { w: MAX, h: MAX };
+          const preload = new Image();
+          preload.onload = function() {
+            const ratio = this.naturalWidth / this.naturalHeight;
+            if (ratio >= 1) { dims[imgFile] = { w: MAX, h: Math.round(MAX / ratio) }; }
+            else            { dims[imgFile] = { w: Math.round(MAX * ratio), h: MAX }; }
+          };
+          preload.src = src;
+        }
+
+        function movePhoto(e) {
+          const { w, h } = dims[imgFile];
+          let x = e.clientX + OFFSET;
+          let y = e.clientY - h - OFFSET;
+          if (y < 8) y = e.clientY + OFFSET;
+          if (x + w > window.innerWidth - 8) x = e.clientX - w - OFFSET;
+          speakingPhoto.style.left = x + 'px';
+          speakingPhoto.style.top = y + 'px';
+        }
+
+        row.addEventListener('mouseenter', (e) => {
+          const { w, h } = dims[imgFile];
+          speakingPhoto.src = src;
+          speakingPhoto.style.width = w + 'px';
+          speakingPhoto.style.height = h + 'px';
+          speakingPhoto.classList.add('visible');
+          movePhoto(e);
+        });
+        row.addEventListener('mouseleave', () => {
+          speakingPhoto.classList.remove('visible');
+        });
+        row.addEventListener('mousemove', movePhoto);
+      });
+    }
+
+    async function loadGiving() {
+      const grid = document.getElementById('giving-grid');
+
+      const GIVING_FALLBACK = [
+        { heading: 'DonorsChoose', desc: 'Gift classroom supplies to teachers', url: 'https://www.donorschoose.org' },
+        { heading: 'CCED LA', desc: 'Cultural grassroots organization based in Chinatown, Los Angeles', url: 'https://www.ccedla.org' },
+      ];
+
+      function buildCard(item) {
+        const arrow = `<span class="collection-detail-arrow">↗</span>`;
+        return `
+          <a class="giving-card" href="${item.url}" target="_blank">
+            <h3>${item.heading}${arrow}</h3>
+            <p>${item.desc}</p>
+          </a>`;
+      }
+
+      try {
+        const res = await fetch(SHEET_URL_FRESH, { cache: 'no-store' });
+        if (!res.ok) throw new Error('fetch failed');
+        const text = await res.text();
+        const allRows = parseCSV(text).filter(r => r['Category'] && r['Heading']);
+        const donations = allRows.filter(r => r['Category'].trim().toLowerCase() === 'donations');
+        if (donations.length === 0) throw new Error('no rows');
+        grid.innerHTML = donations.map(row => buildCard({
+          heading: row['Heading'] || '',
+          desc: row['Description'] || '',
+          url: (row['External Links'] || '').trim()
+        })).join('');
+      } catch (err) {
+        grid.innerHTML = GIVING_FALLBACK.map(buildCard).join('');
+      }
+    }
+
+    loadGiving();
+
+    function setCollectionView(view) {
+      const gridEl = document.getElementById('collection-list');
+      const listEl = document.getElementById('collection-list-view');
+      const gridBtn = document.getElementById('toggle-grid');
+      const listBtn = document.getElementById('toggle-list');
+      if (view === 'grid') {
+        gridEl.style.display = '';
+        listEl.classList.remove('visible');
+        gridBtn.classList.add('active');
+        listBtn.classList.remove('active');
+      } else {
+        gridEl.style.display = 'none';
+        listEl.classList.add('visible');
+        listBtn.classList.add('active');
+        gridBtn.classList.remove('active');
+        // Reset grid state — close any open detail and clear selections
+        document.querySelectorAll('.collection-detail').forEach(d => d.classList.remove('open'));
+        document.querySelectorAll('.collection-thumb').forEach(t => t.classList.remove('dimmed', 'active'));
+      }
+    }
+
+    async function loadOtherWork() {
+      const gridEl = document.getElementById('collection-list');
+      const listEl = document.getElementById('collection-list-view');
+
+      function getHeadingUrl(row) {
+        const externalLinks = row['External Links'] || '';
+        if (!externalLinks) return null;
+        const pairs = externalLinks.split(',').map(s => s.trim()).filter(s => s.includes('|'));
+        for (const pair of pairs) {
+          const pipeIndex = pair.indexOf('|');
+          const linkText = pair.substring(0, pipeIndex).trim();
+          const url = pair.substring(pipeIndex + 1).trim();
+          if (linkText.toLowerCase() === (row['Heading'] || '').toLowerCase()) return url;
+        }
+        if (externalLinks.trim().startsWith('http')) return externalLinks.trim();
+        return null;
+      }
+
+      function buildListView(rows) {
+        return rows.map(row => {
+          const headingUrl = getHeadingUrl(row);
+          const imageName = row['Image Name'] ? row['Image Name'].trim() : '';
+          const arrow = `<span class="collection-detail-arrow">↗</span>`;
+          const titleHTML = headingUrl
+            ? `<a href="${headingUrl}" target="_blank" class="collection-detail-link">${row['Heading'] || ''}${arrow}</a>`
+            : `<span class="collection-list-nda-title">${row['Heading'] || ''}<span class="collection-nda-tag">Under NDA</span></span>`;
+          const imgHTML = imageName
+            ? `<img src="images/${imageName}" alt="${row['Heading'] || ''}" class="collection-list-image" />`
+            : `<div class="collection-list-placeholder">🖼️</div>`;
+          return `
+            <div class="collection-list-card${!headingUrl ? ' collection-list-card--nda' : ''}">
+              ${imgHTML}
+              <div class="collection-list-content">
+                <h3 class="collection-list-title">${titleHTML}</h3>
+                <div class="collection-list-desc">${applyLinks(row['Description'] || '', row['External Links'] || '')}</div>
+              </div>
+            </div>`;
+        }).join('');
+      }
+
+      function buildGrid(rows) {
+        const CHUNK = 4;
+        let html = '';
+        for (let i = 0; i < rows.length; i += CHUNK) {
+          const chunk = rows.slice(i, i + CHUNK);
+          const rowIndex = Math.floor(i / CHUNK);
+          // Split into pairs for mobile (2 images + 1 detail panel per pair)
+          const pair1 = chunk.slice(0, 2);
+          const pair2 = chunk.slice(2, 4);
+
+          html += `<div class="collection-row-wrap" data-row="${rowIndex}">`;
+
+          // Desktop: single image row
+          html += `<div class="collection-image-row">`;
+          chunk.forEach((row, j) => {
+            const globalIndex = i + j;
+            const imageName = row['Image Name'] ? row['Image Name'].trim() : '';
+            const imgHTML = imageName
+              ? `<img src="images/${imageName}" alt="${row['Heading'] || ''}" />`
+              : `<div class="collection-thumb-placeholder">🖼️</div>`;
+            html += `<div class="collection-thumb${!row['External Links'] ? ' collection-thumb--nda' : ''}" data-index="${globalIndex}" data-row="${rowIndex}" data-pair="${j < 2 ? 0 : 1}">${imgHTML}</div>`;
+          });
+          html += `</div>`;
+          // Desktop detail panel
+          html += `<div class="collection-detail collection-detail-desktop" id="detail-row-${rowIndex}"></div>`;
+
+          // Mobile: two pairs of images, each with their own detail panel below
+          html += `<div class="collection-mobile-pairs">`;
+          [pair1, pair2].forEach((pair, pairIdx) => {
+            if (pair.length === 0) return;
+            html += `<div class="collection-mobile-pair">`;
+            html += `<div class="collection-mobile-image-row">`;
+            pair.forEach((row, j) => {
+              const globalIndex = i + pairIdx * 2 + j;
+              const imageName = row['Image Name'] ? row['Image Name'].trim() : '';
+              const imgHTML = imageName
+                ? `<img src="images/${imageName}" alt="${row['Heading'] || ''}" />`
+                : `<div class="collection-thumb-placeholder">🖼️</div>`;
+              html += `<div class="collection-thumb" data-index="${globalIndex}" data-row="${rowIndex}" data-pair="${pairIdx}">${imgHTML}</div>`;
+            });
+            html += `</div>`;
+            html += `<div class="collection-detail collection-detail-mobile" id="detail-mobile-pair-${rowIndex}-${pairIdx}"></div>`;
+            html += `</div>`;
+          });
+          html += `</div>`;
+
+          html += `</div>`;
+        }
+        return html;
+      }
+
+      function renderDetail(row, headingUrl) {
+        const arrow = `<span class="collection-detail-arrow">↗</span>`;
+        const ndaTag = !headingUrl ? `<span class="collection-nda-tag">Under NDA</span>` : '';
+        const titleHTML = headingUrl
+          ? `<a href="${headingUrl}" target="_blank" class="collection-detail-link">${row['Heading'] || ''}${arrow}</a>${ndaTag}`
+          : `<span style="cursor:not-allowed;">${row['Heading'] || ''}</span>${ndaTag}`;
+        return `
+          <div class="collection-detail-inner">
+            <div class="collection-detail-title" style="display:flex;align-items:center;gap:10px;">${titleHTML}</div>
+            <div class="collection-detail-desc">${applyLinks(row['Description'] || '', row['External Links'] || '')}</div>
+          </div>`;
+      }
+
+      function isMobile() { return window.innerWidth <= 768; }
+
+      function initInteractions(rows) {
+        let activeIndex = null;
+        let activeRowIdx = null;
+        let activePairIdx = null;
+
+        document.querySelectorAll('.collection-thumb').forEach(thumb => {
+          thumb.addEventListener('click', () => {
+            const idx = parseInt(thumb.dataset.index);
+            const rowIdx = parseInt(thumb.dataset.row);
+            const pairIdx = parseInt(thumb.dataset.pair);
+            const mobile = isMobile();
+
+            const desktopDetailEl = document.getElementById(`detail-row-${rowIdx}`);
+            const mobileDetailEl = document.getElementById(`detail-mobile-pair-${rowIdx}-${pairIdx}`);
+            const detailEl = mobile ? mobileDetailEl : desktopDetailEl;
+            const allThumbs = document.querySelectorAll('.collection-thumb');
+
+            if (activeIndex === idx) {
+              // Close
+              activeIndex = null;
+              activeRowIdx = null;
+              activePairIdx = null;
+              detailEl.classList.remove('open');
+              allThumbs.forEach(t => t.classList.remove('dimmed', 'active'));
+
+            } else if (activeRowIdx === rowIdx && (!mobile || activePairIdx === pairIdx)) {
+              // Same row (desktop) or same pair (mobile) — crossfade
+              activeIndex = idx;
+              allThumbs.forEach(t => {
+                t.classList.remove('active');
+                if (parseInt(t.dataset.index) === idx) t.classList.add('active');
+                else t.classList.add('dimmed');
+              });
+              const inner = detailEl.querySelector('.collection-detail-inner');
+              if (inner) {
+                inner.style.transition = 'opacity 0.25s ease';
+                inner.style.opacity = '0';
+                setTimeout(() => {
+                  detailEl.innerHTML = renderDetail(rows[idx], getHeadingUrl(rows[idx]));
+                  const newInner = detailEl.querySelector('.collection-detail-inner');
+                  if (newInner) {
+                    newInner.style.opacity = '0';
+                    newInner.style.transition = 'opacity 0.12s ease';
+                    requestAnimationFrame(() => requestAnimationFrame(() => { newInner.style.opacity = '1'; }));
+                  }
+                }, 250);
+              }
+
+            } else {
+              // Close previous
+              if (activeRowIdx !== null) {
+                if (mobile) {
+                  // Close previous mobile pair panel
+                  const prevMobile = document.getElementById(`detail-mobile-pair-${activeRowIdx}-${activePairIdx}`);
+                  if (prevMobile) prevMobile.classList.remove('open');
+                } else {
+                  const prevDesktop = document.getElementById(`detail-row-${activeRowIdx}`);
+                  if (prevDesktop) prevDesktop.classList.remove('open');
+                }
+              }
+
+              activeIndex = idx;
+              activeRowIdx = rowIdx;
+              activePairIdx = pairIdx;
+              detailEl.innerHTML = renderDetail(rows[idx], getHeadingUrl(rows[idx]));
+              requestAnimationFrame(() => detailEl.classList.add('open'));
+
+              allThumbs.forEach(t => {
+                t.classList.remove('dimmed', 'active');
+                if (parseInt(t.dataset.index) === idx) t.classList.add('active');
+                else t.classList.add('dimmed');
+              });
+            }
+          });
+        });
+      }
+
+      try {
+        const res = await fetch(SHEET_URL_FRESH, { cache: 'no-store' });
+        if (!res.ok) throw new Error('fetch failed');
+        const text = await res.text();
+        const allRows = parseCSV(text).filter(r => r['Category'] && r['Heading']);
+        const otherWork = allRows.filter(r => r['Category'].trim().toLowerCase() === 'otherwork');
+        if (otherWork.length === 0) throw new Error('no rows');
+        gridEl.innerHTML = buildGrid(otherWork);
+        listEl.innerHTML = buildListView(otherWork);
+        initInteractions(otherWork);
+        setCollectionView('list');
+      } catch (err) {
+        const otherWork = FALLBACK_DATA.filter(r => r['Category'] === 'otherwork');
+        gridEl.innerHTML = buildGrid(otherWork);
+        listEl.innerHTML = buildListView(otherWork);
+        initInteractions(otherWork);
+        setCollectionView('list');
+      }
+    }
+  </script>
+
+
+  <script>
+    // Prefetch nav links on hover for faster navigation
+    (function() {
+      document.addEventListener('mouseover', e => {
+        const a = e.target.closest('a[href]');
+        if (!a) return;
+        const url = a.getAttribute('href');
+        if (!url || url.startsWith('http') || url.startsWith('mailto') || url.startsWith('#') || url.startsWith('javascript')) return;
+        let abs;
+        try { abs = new URL(url, window.location.href).href; } catch(e) { return; }
+        if (!document.querySelector('link[rel=prefetch][href="' + abs + '"]')) {
+          const link = document.createElement('link');
+          link.rel = 'prefetch'; link.href = abs;
+          document.head.appendChild(link);
+        }
+      });
+    })();
+  </script>
+
+</body>
+</html>
